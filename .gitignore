@@ -4,3 +4,6 @@
 /build/classes/java/main/
 /run/
 /.idea/
+/run-data/
+
+/logs/
