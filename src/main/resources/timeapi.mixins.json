@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.mangorage.test2.timeapi.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "TimeAPI.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
