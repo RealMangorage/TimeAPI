@@ -28,6 +28,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 public abstract class TickResolver<R extends BlockEntity> {
     abstract public void tick(R blockEntity);
     abstract public Class<R> getResolvedClass();
+    abstract public String getID();
 
     /**
      * Only use this if you know what your doing.

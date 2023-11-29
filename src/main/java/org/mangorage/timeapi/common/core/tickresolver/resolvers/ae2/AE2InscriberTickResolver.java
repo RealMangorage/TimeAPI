@@ -27,8 +27,9 @@ import appeng.blockentity.misc.InscriberBlockEntity;
 import org.mangorage.timeapi.api.RegisterResolver;
 import org.mangorage.timeapi.common.core.tickresolver.TickResolver;
 
-@RegisterResolver(modID = "ae2")
+@RegisterResolver(modID = "ae2", resolverID = AE2InscriberTickResolver.ID)
 public class AE2InscriberTickResolver extends TickResolver<InscriberBlockEntity> {
+    protected static final String ID = "ae2Inscriber";
     @Override
     public void tick(InscriberBlockEntity blockEntity) {
         blockEntity.tickingRequest(blockEntity.getGridNode(), 10_000);
@@ -36,5 +37,10 @@ public class AE2InscriberTickResolver extends TickResolver<InscriberBlockEntity>
     @Override
     public Class<InscriberBlockEntity> getResolvedClass() {
         return InscriberBlockEntity.class;
+    }
+
+    @Override
+    public String getID() {
+        return ID;
     }
 }

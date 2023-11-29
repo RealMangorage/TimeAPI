@@ -29,8 +29,9 @@ import net.minecraft.core.Direction;
 import org.mangorage.timeapi.api.RegisterResolver;
 import org.mangorage.timeapi.common.core.tickresolver.TickResolver;
 
-@RegisterResolver(modID = "ae2")
-public class CableBusTickResolver extends TickResolver<CableBusBlockEntity> {
+@RegisterResolver(modID = "ae2", resolverID = AE2CableBusTickResolver.ID)
+public class AE2CableBusTickResolver extends TickResolver<CableBusBlockEntity> {
+    protected static final String ID = "ae2CableBus";
     @Override
     public void tick(CableBusBlockEntity blockEntity) {
         var cb = blockEntity.getCableBus();
@@ -44,5 +45,10 @@ public class CableBusTickResolver extends TickResolver<CableBusBlockEntity> {
     @Override
     public Class<CableBusBlockEntity> getResolvedClass() {
         return CableBusBlockEntity.class;
+    }
+
+    @Override
+    public String getID() {
+        return ID;
     }
 }

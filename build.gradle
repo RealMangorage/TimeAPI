@@ -98,7 +98,7 @@ dependencies {
     if (minecraft_version == "1.20.1") {
         // Mods for testing purposes. 1.20.1 Mods
         implementation fg.deobf("curse.maven:time-in-a-bottle-forge-895919:4744787")
-        implementation fg.deobf("curse.maven:applied-energistics-2-223794:4857895")
+        compileOnly fg.deobf("curse.maven:applied-energistics-2-223794:4857895")
         implementation fg.deobf("curse.maven:jei-238222:4712868")
         implementation fg.deobf("curse.maven:mekanism-268560:4864250")
         implementation fg.deobf("curse.maven:projecte-226410:4860859")

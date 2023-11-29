@@ -24,9 +24,14 @@
 package org.mangorage.timeapi;
 
 import com.mojang.logging.LogUtils;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.config.ModConfigEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.mangorage.timeapi.common.core.Constants;
+import org.mangorage.timeapi.common.core.config.Configs;
 import org.mangorage.timeapi.common.core.registries.ModRegistries;
 import org.mangorage.timeapi.common.core.annotations.TimeInternal;
 import org.mangorage.timeapi.common.core.tickresolver.Resolvers;
@@ -35,10 +40,16 @@ import org.slf4j.Logger;
 
 @TimeInternal
 @Mod(Constants.MODID)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TimeAPIMod {
     private static final Logger LOGGER = LogUtils.getLogger();
     public TimeAPIMod() {
+        Configs.register();
         ModRegistries.init(FMLJavaModLoadingContext.get().getModEventBus());
+    }
+
+    @SubscribeEvent
+    public static void onFML(ModConfigEvent event) {
         Resolvers.init();
     }
 }
